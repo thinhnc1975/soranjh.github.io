@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Page</title>
+    <style>
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+        }
+        nav a {
+            color: gray;
+            padding: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .content section {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+        {% endfor %}
+    </nav>
+</body>
+</html>
